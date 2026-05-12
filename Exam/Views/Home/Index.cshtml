@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="container mt-5">
+    <div class="jumbotron text-center p-5 mb-4 card">
+        <h1 class="display-3" style="color: var(--primary-color);">FragTracker</h1>
+        <p class="lead">Ваша персональна система відстеження кіберспортивних досягнень.</p>
+        <hr class="my-4" style="background-color: #444;">
+        <div class="d-flex justify-content-center gap-3">
+            <a class="btn btn-primary btn-lg" asp-controller="ProPlayers" asp-action="Index" role="button">Список гравців</a>
+            <a class="btn btn-outline-light btn-lg" asp-controller="ProPlayers" asp-action="Create" role="button">Додати профі</a>
+        </div>
+    </div>
+
+    <div class="row text-center mt-5">
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h3>CS2</h3>
+                <p class="text-muted">Аналітика матчів та рейтингів Valve сервісів.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h3>Dota 2</h3>
+                <p class="text-muted">Відстеження MMR та виступів на турнірах.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4 mb-3">
+                <h3>Турніри</h3>
+                <p class="text-muted">Актуальна інформація про поточні події.</p>
+            </div>
+        </div>
+    </div>
+</div>

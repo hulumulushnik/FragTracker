@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FragTracker</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        /* Темна ігрова тема */
+        body { background-color: #0f1215; color: #e0e0e0; }
+        .navbar { background-color: #1a1f24 !important; border-bottom: 2px solid #00ff88; }
+        footer { background-color: #1a1f24; padding: 15px 0; border-top: 1px solid #333; position: fixed; bottom: 0; width: 100%; }
+        .status-badge { padding: 5px 10px; border-radius: 5px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark mb-3">
+            <div class="container">
+                <a class="navbar-brand text-success fw-bold" asp-controller="Home" asp-action="Index">FRAG.TRACKER</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <strong>Турнір:</strong> @(Environment.GetEnvironmentVariable("Tournament_Name") ?? "Demo Cup") |
+                    <strong>Статус:</strong> @(Environment.GetEnvironmentVariable("Server_Environment") ?? "Dev")
+                </div>
+                <div class="col-md-7 text-end">
+                    @{
+                        var steamToken = Environment.GetEnvironmentVariable("Steam_WebHookToken");
+                        if (string.IsNullOrEmpty(steamToken))
+                        {
+                            <span class="text-danger small">Синхронізацію зі Steam вимкнено</span>
+                        }
+                        else
+                        {
+                            <span class="text-success small">Steam Token: [ПРИХОВАНО]</span>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

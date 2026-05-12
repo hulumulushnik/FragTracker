@@ -1,0 +1,48 @@
+:root {
+    --primary-color: #00ff88; /* Акцентний зелений */
+    --bg-dark: #0f1215;
+    --card-bg: #1a1f24;
+    --text-main: #e0e0e0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.navbar {
+    background-color: var(--card-bg) !important;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary-color);
+    }
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    color: #000;
+    font-weight: bold;
+}
+
+    .btn-primary:hover {
+        background-color: #00cc6e;
+        color: #000;
+    }
+
+footer {
+    background-color: var(--card-bg);
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 1px solid #333;
+}

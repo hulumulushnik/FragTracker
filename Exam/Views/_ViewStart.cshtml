@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "_Layout";
+}
+<footer class="border-top footer text-muted">
+    <div class="container">
+        <p><strong>Турнір:</strong> @(Environment.GetEnvironmentVariable("Tournament_Name") ?? "Не визначено")</p>
+        <p><strong>Статус:</strong> @(Environment.GetEnvironmentVariable("Server_Environment") ?? "Development")</p>
+
+        <div>
+            @{
+                var steamToken = Environment.GetEnvironmentVariable("Steam_WebHookToken");
+                if (string.IsNullOrEmpty(steamToken))
+                {
+                    <span class="badge bg-danger">Синхронізацію зі Steam вимкнено</span>
+                }
+                else
+                {
+                    <span class="badge bg-success">Steam Token: [ПРИХОВАНО]</span>
+                }
+            }
+        </div>
+    </div>
+</footer>
